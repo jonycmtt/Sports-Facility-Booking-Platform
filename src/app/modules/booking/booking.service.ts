@@ -33,11 +33,11 @@ const getAllBookingFromDB = async () => {
   return await Booking.find();
 };
 const getUserBookingFromDB = async (user: string) => {
-  return await Booking.findOne({ user });
+  return await Booking.find({ user });
 };
 
 const cancelBookingFromDB = async (id: string) => {
-  return await Booking.findById(
+  return await Booking.findByIdAndUpdate(
     id,
     {
       isBooked: 'canceled',
