@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { BookingServices } from './booking.service';
+import moment from 'moment';
 
 const createBooking = catchAsync(async (req, res) => {
   const result = await BookingServices.createBookingIntoDB(req.body);
