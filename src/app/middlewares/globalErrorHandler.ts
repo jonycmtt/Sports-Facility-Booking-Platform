@@ -3,14 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
-import { ZodError, ZodIssue } from 'zod';
+
 import { TErrorSource } from '../interface/error';
-import config from '../config';
 import handleZodError from '../Errors/handleZodError';
+import { ZodError } from 'zod';
 import handleMongooseError from '../Errors/handleMongooseError';
 import handleCastError from '../Errors/handleCastError';
 import handleDuplicateError from '../Errors/handleDuplicateError';
 import AppError from '../Errors/AppError';
+import config from '../config';
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let statusCode = 500;
