@@ -5,10 +5,10 @@ const createFacilityIntoDB = async (payload: TFacility) => {
   return await Facility.create(payload);
 };
 const getFacilityFromDB = async () => {
-  return await Facility.find();
+  return await Facility.find().exec();
 };
 const getSingleFacilityFromDB = async (id: string) => {
-  return await Facility.findById(id);
+  return await Facility.findById(id).exec();
 };
 const updateFacilityIntoDB = async (
   id: string,
@@ -16,7 +16,7 @@ const updateFacilityIntoDB = async (
 ) => {
   return await Facility.findByIdAndUpdate(id, payload, {
     new: true,
-  });
+  }).exec();
 };
 const deleteFacilityIntoDB = async (id: string) => {
   return await Facility.findByIdAndUpdate(
@@ -27,7 +27,7 @@ const deleteFacilityIntoDB = async (id: string) => {
     {
       new: true,
     },
-  );
+  ).exec();
 };
 
 export const FacilityServices = {
