@@ -15,11 +15,13 @@ const signUp = catchAsync(async (req, res) => {
 const login = catchAsync(async (req, res) => {
   const { email, password } = req.body;
   const result = await UserServices.loginFromDB(email, password);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User logged in successfully',
-    data: result,
+    token: result.accessToken,
+    data: result.user,
   });
 });
 

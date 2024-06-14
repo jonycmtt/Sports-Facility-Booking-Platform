@@ -4,8 +4,8 @@ import { Facility } from '../facility/facility.model';
 import { TBooking } from './booking.interface';
 import { Booking } from './booking.model';
 
-const createBookingIntoDB = async (payload: TBooking) => {
-  const { facility, date, startTime, endTime, user } = payload;
+const createBookingIntoDB = async (userId: string, payload: TBooking) => {
+  const { facility, date, startTime, endTime } = payload;
 
   const existingFacility = await Facility.findById(facility);
   if (!existingFacility) {
@@ -24,7 +24,7 @@ const createBookingIntoDB = async (payload: TBooking) => {
     date,
     startTime,
     endTime,
-    user,
+    user: userId,
     payableAmount,
   });
 };

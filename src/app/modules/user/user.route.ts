@@ -12,7 +12,7 @@ router.post(
 );
 router.post(
   '/login',
-  validateRequest(UserValidation.UserValidationSchema),
+  validateRequest(UserValidation.loginSchema),
   UserControllers.login,
 );
 
