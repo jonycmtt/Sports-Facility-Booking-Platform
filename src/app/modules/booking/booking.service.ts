@@ -35,7 +35,7 @@ const getAllBookingFromDB = async () => {
   return result;
 };
 const getUserBookingFromDB = async (user: string) => {
-  return await Booking.find({ user });
+  return await Booking.find({ user }).populate('facility');
 };
 
 const cancelBookingFromDB = async (id: string) => {
@@ -52,7 +52,7 @@ const cancelBookingFromDB = async (id: string) => {
     {
       new: true,
     },
-  );
+  ).populate('facility');
 };
 
 export const BookingServices = {
