@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { FacilityServices } from './facility.service';
+import { Facility } from './facility.model';
 
 const createFacility = catchAsync(async (req, res) => {
   const result = await FacilityServices.createFacilityIntoDB(req.body);
@@ -15,6 +16,16 @@ const createFacility = catchAsync(async (req, res) => {
 
 const getAllFacility = catchAsync(async (req, res) => {
   const result = await FacilityServices.getFacilityFromDB();
+
+  const existsData = await Facility.find();
+  if (existsData && existsData.length === 0) {
+    sendResponse(res, {
+      statusCode: httpStatus.NOT_FOUND,
+      success: false,
+      message: 'No Data Found',
+      data: [],
+    });
+  }
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

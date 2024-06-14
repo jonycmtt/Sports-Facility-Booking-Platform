@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { BookingServices } from './booking.service';
+import { Booking } from './booking.model';
 
 const createBooking = catchAsync(async (req, res) => {
   const { userId } = req.user;
@@ -17,6 +18,15 @@ const createBooking = catchAsync(async (req, res) => {
 
 const getAllBooking = catchAsync(async (req, res) => {
   const result = await BookingServices.getAllBookingFromDB();
+  const existsData = await Booking.find();
+  if (existsData && existsData.length === 0) {
+    sendResponse(res, {
+      statusCode: httpStatus.NOT_FOUND,
+      success: false,
+      message: 'No Data Found',
+      data: [],
+    });
+  }
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
