@@ -39,6 +39,11 @@ const getUserBookingFromDB = async (user: string) => {
 };
 
 const cancelBookingFromDB = async (id: string) => {
+  const ixExistFacilityData = await Booking.findById(id);
+  if (!ixExistFacilityData) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Booking data is not found!');
+  }
+
   return await Booking.findByIdAndUpdate(
     id,
     {
