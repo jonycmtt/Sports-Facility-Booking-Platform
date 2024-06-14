@@ -2,9 +2,7 @@ import { z } from 'zod';
 
 const BookingValidationSchema = z.object({
   body: z.object({
-    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, {
-      message: 'Date must be in YYYY-MM-DD format',
-    }),
+    date: z.string(),
     startTime: z.string().regex(/^\d{2}:\d{2}$/, {
       message: 'Start time must be in HH:MM format',
     }),
