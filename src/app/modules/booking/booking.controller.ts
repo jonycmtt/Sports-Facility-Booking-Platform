@@ -72,7 +72,6 @@ const checkAvailability = catchAsync(async (req, res) => {
     data: availableSlots,
   });
 });
-
 export const BookingControllers = {
   createBooking,
   getAllBooking,
