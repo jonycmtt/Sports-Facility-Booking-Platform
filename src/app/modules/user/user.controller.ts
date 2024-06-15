@@ -22,16 +22,16 @@ const signUp = catchAsync(async (req, res) => {
   });
 });
 const login = catchAsync(async (req, res) => {
-  const { email, password } = req.body;
-  const result = await UserServices.loginFromDB(email, password);
+  const { email: paramEmail, password } = req.body;
+  const result = await UserServices.loginFromDB(paramEmail, password);
 
-  const { _id, name, email: userEmail, role, phone, address } = result.user;
+  const { _id, name, email, role, phone, address } = result.user;
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User logged in successfully',
     token: result.accessToken,
-    data: { _id, name, userEmail, role, phone, address },
+    data: { _id, name, email, role, phone, address },
   });
 });
 
