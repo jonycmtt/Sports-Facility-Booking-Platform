@@ -27,7 +27,6 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.post('save', function (doc, next) {
-  // console.log(this, 'we will our save data');
   doc.password = '';
   next();
 });

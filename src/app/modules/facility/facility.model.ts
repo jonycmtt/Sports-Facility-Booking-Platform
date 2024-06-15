@@ -1,4 +1,3 @@
-// src/models/facility.model.ts
 import { Schema, model } from 'mongoose';
 import { TFacility } from './facility.interface';
 
