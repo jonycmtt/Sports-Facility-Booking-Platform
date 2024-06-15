@@ -13,12 +13,12 @@ app.use(cors());
 // application routes
 app.use('/api/', router);
 
-const getAController = (req: Request, res: Response) => {
-  const a = 10;
-  res.send(a);
-};
-
-app.get('/', getAController);
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: '👌Server is Running!',
+  });
+});
 
 app.use(globalErrorHandler);
 app.use(notFound);

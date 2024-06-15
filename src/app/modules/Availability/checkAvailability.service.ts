@@ -25,7 +25,6 @@ const addHours = (date: Date, hours: number): Date => {
 export const findAvailableSlots = async (date: Date) => {
   const dateString = formatDate(date);
   const bookings = await Booking.find({ date: dateString }).exec();
-  console.log(bookings);
 
   const startTime = new Date(date.setHours(8, 0, 0, 0));
   const endTime = new Date(date.setHours(20, 0, 0, 0));

@@ -1,8 +1,6 @@
 // src/models/facility.model.ts
 import { Schema, model } from 'mongoose';
 import { TFacility } from './facility.interface';
-import sendResponse from '../../utils/sendResponse';
-import httpStatus from 'http-status';
 
 const facilitySchema = new Schema<TFacility>({
   name: { type: String, required: true },
