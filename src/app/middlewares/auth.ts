@@ -7,7 +7,17 @@ import sendResponse from '../utils/sendResponse';
 
 const auth = (...requiredRoles: string[]) => {
   return catchAsync(async (req, res, next) => {
-    const token = req.headers.authorization?.split(',')[1];
+    const token = req.headers.authorization;
+    const solidToken = token?.split(' ')[1];
+
+    if (token?.split(' ')[0] !== 'Bearer') {
+      sendResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
+        success: false,
+        message: 'You have no access to this route',
+      });
+    }
+
     // if the token exists
     if (!token) {
       sendResponse(res, {
@@ -19,7 +29,7 @@ const auth = (...requiredRoles: string[]) => {
 
     // check if the token is valid
     jwt.verify(
-      token as string,
+      solidToken as string,
       config.JWT_ACCESS_SECRET as string,
       function (err, decoded) {
         if (err) {

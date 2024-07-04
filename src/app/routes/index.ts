@@ -2,7 +2,7 @@ import express from 'express';
 import { UserRoutes } from '../modules/user/user.route';
 import { FacilityRoutes } from '../modules/facility/facility.route';
 import { BookingRoutes } from '../modules/booking/booking.route';
-import { AvailabilityRoutes } from '../modules/availability/availbility.route';
+import { availabilityRoute } from '../Availability/availability.routes';
 
 const router = express.Router();
 const moduleRoutes = [
@@ -20,7 +20,7 @@ const moduleRoutes = [
   },
   {
     path: '/check-availability',
-    route: AvailabilityRoutes,
+    route: availabilityRoute,
   },
 ];
 
