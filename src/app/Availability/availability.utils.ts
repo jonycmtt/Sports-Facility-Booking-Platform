@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function formatTime24(hour: number) {
-  const formattedHour = hour.toString().padStart(2, "0");
+  const formattedHour = hour.toString().padStart(2, '0');
   return `${formattedHour}:00`;
 }
 
@@ -17,7 +18,7 @@ function generateTwoHourTimeSlots() {
 }
 
 function generateAvailableSlots(userSlots: any) {
-  const totalSlots = [{ startTime: "00:00", endTime: "24:00" }];
+  const totalSlots = [{ startTime: '00:00', endTime: '24:00' }];
 
   userSlots.forEach((userSlot: any) => {
     const userStart = parseTime(userSlot.startTime);
@@ -53,7 +54,7 @@ function generateAvailableSlots(userSlots: any) {
 }
 
 function parseTime(timeString: string) {
-  const [hours, minutes] = timeString.split(":").map(Number);
+  const [hours, minutes] = timeString.split(':').map(Number);
   return hours * 60 + minutes;
 }
 
