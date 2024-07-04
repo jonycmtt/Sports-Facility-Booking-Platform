@@ -17,7 +17,7 @@ function doesOverlap(existingSlots: any, newSlot: any) {
 
 // Helper function to parse time string into minutes since midnight
 function parseTime(timeString: string): number {
-  const [hours, minutes] = timeString.split(":").map(Number);
+  const [hours, minutes] = timeString.split(':').map(Number);
   return hours * 60 + minutes;
 }
 
