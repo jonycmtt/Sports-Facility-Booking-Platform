@@ -6,7 +6,15 @@ import { UserServices } from './user.service';
 const signUp = catchAsync(async (req, res) => {
   const result = await UserServices.signUpIntoDB(req.body);
 
-  const { _id, name, email: userEmail, role, phone, address } = result;
+  const {
+    _id,
+    name,
+    email: userEmail,
+    role,
+    phone,
+    address,
+    profilePic,
+  } = result;
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -18,6 +26,7 @@ const signUp = catchAsync(async (req, res) => {
       role,
       phone,
       address,
+      profilePic,
     },
   });
 });

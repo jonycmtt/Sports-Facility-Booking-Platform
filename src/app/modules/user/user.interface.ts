@@ -5,4 +5,5 @@ export type TUser = {
   phone: string;
   role: 'admin' | 'user';
   address: string;
+  profilePic: string;
 };

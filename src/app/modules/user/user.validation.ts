@@ -28,6 +28,10 @@ const UserValidationSchema = z.object({
       invalid_type_error: 'Address is must be string',
       required_error: 'Address is required',
     }),
+    profilePic: z.string({
+      invalid_type_error: 'profilePic is must be string',
+      required_error: 'profilePic is required',
+    }),
   }),
 });
 
