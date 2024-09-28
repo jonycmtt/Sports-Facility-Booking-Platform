@@ -4,7 +4,7 @@ Welcome to the Sports Facility Booking Platform! This project allows users to bo
 
 ## Live URL
 
-Access the live application at: [Sports Facility Booking Platform Live URL](https://assignment03-olive.vercel.app/)
+Access the live application at: [Sports Facility Booking Platform Live URL](https://sports-facility-server-recheck.vercel.app/)
 
 ## Features
 
