@@ -8,7 +8,7 @@ Access the live application at: [Sports Facility Booking Platform Live URL](http
 
 ## Features
 
-- **User Signup:** Register new users with secure password hashing.
+- **User Sign up:** Register new users with secure password hashing.
 - **User Login:** Authenticate users and provide a JWT token for session management.
 - **Facility Management (Admin Only):**
   - **Create Facility:** Admins can add new sports facilities.
